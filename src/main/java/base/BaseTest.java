@@ -1,10 +1,13 @@
 package base;
 
 import configurationManager.BaseConfiguration;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
-public class BaseTest {
+import java.util.concurrent.TimeUnit;
+
+public class BaseTest extends BaseConfiguration{
     protected final Base base = new Base();
 
     @BeforeSuite(alwaysRun = true)
@@ -12,8 +15,8 @@ public class BaseTest {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
     }
 
-    @AfterSuite(alwaysRun = true)
-    protected void afterSuiteActions() {
-        BaseConfiguration.getDriver().quit();
-    }
+//    @AfterSuite(alwaysRun = true)
+//    protected void afterSuiteActions() {
+//        BaseConfiguration.getDriver().quit();
+//    }
 }

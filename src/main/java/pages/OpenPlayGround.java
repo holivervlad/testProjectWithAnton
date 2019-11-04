@@ -1,39 +1,40 @@
 package pages;
 
+import base.BasePage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class OpenPlayGround {
-    @FindBy(xpath = "//header//div[2]//div[@class = \"slds-m-left_x-small\"][2]")
+import java.util.concurrent.TimeUnit;
+
+public class OpenPlayGround extends BasePage {
+
+
+    @FindBy(xpath = "//input[@id='username']")
+    private WebElement emailField;
+
+    @FindBy(xpath = "//input[@id='password']")
+    private WebElement passwordField;
+
+    @FindBy(xpath = "//input[@id='Login']")
     private WebElement logInButton;
 
-    @FindBy(xpath = "//button[@id=\"login_with_linkedin\"]/span")
-    private WebElement linkidineButton;
 
-    @FindBy(xpath = "//input[@id=\"username\"]")
-    private WebElement logInFieldLinkidine;
-
-    @FindBy(xpath = "//input[@id=\"password\"]")
-    private WebElement passwordFieldLinkidine;
-
-    @FindBy(xpath = "//div/form/div[3]/button[@type= \"submit\"]")
-    private WebElement signInButtonLinkidine;
-
-    @FindBy(xpath = "//div[@data-test = \"header-user-name\"]")
-    private WebElement nameOfUser;
-
-    @FindBy(xpath = "//div[@class = \"slds-p-bottom_large slds-p-horizontal_large\"]//a")
-    private WebElement launchButton;
 
     public HomePage logInPlayGround(String emailData, String passwordData) {
+        WebDriver driver = null;
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        OpenPlayGround openPlayGround = new OpenPlayGround();
+        openPlayGround.emailField.sendKeys(emailData);
+        openPlayGround.passwordField.sendKeys(passwordData);
+        openPlayGround.logInButton.click();
+        //driver.findElement((By) emailField).sendKeys();
+        //driver.findElement(By.ByXPath(emailField));
+        //driver.emailField.sendKeys(emailData);
+        passwordField.sendKeys(passwordData);
         logInButton.click();
-        linkidineButton.click();
-        logInFieldLinkidine.clear();
-        logInFieldLinkidine.sendKeys(emailData);
-        passwordFieldLinkidine.clear();
-        passwordFieldLinkidine.sendKeys(passwordData);
-        signInButtonLinkidine.click();
-
         return new HomePage();
     }
 }
