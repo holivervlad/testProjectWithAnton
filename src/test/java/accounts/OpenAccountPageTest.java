@@ -3,16 +3,16 @@ package accounts;
 import base.BaseTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.OpenPlayGround;
+import pages.LogInPage;
 
 public class OpenAccountPageTest extends BaseTest {
-    public OpenPlayGround openPlayGround;
+    public LogInPage logInPage;
     public HomePage homePage;
 
     @Test
     public void openAccountPageTest() {
-        openPlayGround = base.openPlayGroundPage();
-        homePage = openPlayGround.logInPlayGround("vladyslav.holiver@curious-moose-50xavl.com",
+        logInPage = base.openPlayGroundPage();
+        homePage = logInPage.logInPlayGround("vladyslav.holiver@curious-moose-50xavl.com",
                 "Test_123");
     }
 }
