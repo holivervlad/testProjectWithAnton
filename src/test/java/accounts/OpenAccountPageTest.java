@@ -14,5 +14,6 @@ public class OpenAccountPageTest extends BaseTest {
         logInPage = base.openPlayGroundPage();
         homePage = logInPage.logInPlayGround("vladyslav.holiver@curious-moose-50xavl.com",
                 "Test_123");
+
     }
 }
