@@ -25,6 +25,8 @@ public class UserData {
 
         BaseConfiguration.getDriver().get(CustomSalesProfileUser);
         Thread.sleep(10000);
+        BasePage basePage;
+        basePage = new BasePage();
         basePage.waitUntilLoading(logInButton);
         driver.findElement((By)logInButton).click();
         return new HomePage();
