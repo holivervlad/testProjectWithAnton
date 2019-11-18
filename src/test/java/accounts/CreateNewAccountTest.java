@@ -1,12 +1,10 @@
 package accounts;
 
-import base.Base;
 import base.BaseTest;
 import data.UserData;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-import pages.AccountsPage;
-import pages.CreateNewAccountsPage;
+import pages.accounts.AccountsPage;
+import pages.accounts.CreateNewAccountsPage;
 import pages.HomePage;
 import pages.LogInPage;
 

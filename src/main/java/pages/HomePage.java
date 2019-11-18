@@ -1,26 +1,28 @@
 package pages;
 
 import base.BasePage;
-import data.UserData;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.accounts.AccountsPage;
 
 public class HomePage extends BasePage {
 
     @FindBy(xpath = "//button[@title = 'Show Navigation Menu']")
     private WebElement tabDropDown;
 
-    @FindBy(xpath = "//div[@role = 'listbox']//span[text() = 'Accounts']")
+    @FindBy(xpath = "//span[@class='slds-media__body']//span[text() = 'Accounts']")
     private WebElement accountsTab;
 
-    public AccountsPage openAccountsPage() {
-        waitUntilLoading(tabDropDown);
+    public AccountsPage openAccountsPage() throws InterruptedException {
+        //waitUntilLoading(tabDropDown);
+        Thread.sleep(10000);
         tabDropDown.click();
-        waitUntilLoading(accountsTab);
+//        Thread.sleep(5000);
+        //waitUntilLoading(accountsTab);
+        Thread.sleep(10000);
         accountsTab.click();
-    return new AccountsPage();
+        Thread.sleep(5000);
+        return new AccountsPage();
     }
 
 }
