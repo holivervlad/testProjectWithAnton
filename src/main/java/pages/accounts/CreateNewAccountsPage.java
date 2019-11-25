@@ -38,15 +38,16 @@ public class CreateNewAccountsPage extends BasePage {
 
     @FindBy(xpath = "//span[text() = 'Employees']")
     private WebElement employeesField;
+
     public AccountsPage createNewAccount(String accountName, String slaSerialNumber) throws InterruptedException {
-        Thread.sleep(5000);
-        accountNameField.sendKeys(accountName);
-        Thread.sleep(5000);
-        activeDropDown.click();
-        //waitUntilLoading(chooseActiveinActiveDropDown);
-        Thread.sleep(5000);
-        chooseActiveinActiveDropDown.click();
-        Thread.sleep(5000);
+//        Thread.sleep(5000);
+//        accountNameField.sendKeys(accountName);
+//        Thread.sleep(5000);
+//        activeDropDown.click();
+//        //waitUntilLoading(chooseActiveinActiveDropDown);
+//        Thread.sleep(5000);
+//        chooseActiveinActiveDropDown.click();
+//        Thread.sleep(5000);
 
         //var 1:
 //        JavascriptExecutor jse = (JavascriptExecutor)driver;
@@ -96,14 +97,21 @@ public class CreateNewAccountsPage extends BasePage {
 //        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
 
         //var 10:
-        JavascriptExecutor js = ((JavascriptExecutor) driver);
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-        Thread.sleep(10000);
-        employeesField.click();
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-        js.executeScript("window.scrollBy(0,350)");
+//        JavascriptExecutor js = ((JavascriptExecutor) driver);
+//        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+//        Thread.sleep(10000);
+//        employeesField.click();
+//        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+//        js.executeScript("window.scrollBy(0,350)");
 
-
+        //var 11:
+        int i = 1;
+        while (i < 8) {
+            JavascriptExecutor js = ((JavascriptExecutor) driver);
+            js.executeScript("window.scrollTo(0,350)");
+            i++;
+        }
+       // js.executeScript("window.scrollBy(0,1000)");
 
 //        Thread.sleep(10000);
 //        slaExpirationDateDropDownCalendar.click();

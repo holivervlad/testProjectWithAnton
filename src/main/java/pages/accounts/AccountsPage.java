@@ -4,6 +4,7 @@ import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -25,13 +26,13 @@ public class AccountsPage extends BasePage {
     @FindBy (xpath = "//input[@id = 'input-101']")
     private WebElement localSearch;
 
-    @FindBy(xpath = "//a[text() = 'test Account']")
+    @FindBy(xpath = "//span[@title = 'atest']")
     private WebElement testAccount;
 
     @FindBy(xpath = "//div[@title = 'Edit']")
     private WebElement editButtonOnTestAccount;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//tbody//tr//th")
     private List<WebElement> accountNames;
 
     public CreateNewAccountsPage clickOnNewAccountButton () throws InterruptedException {
@@ -40,9 +41,9 @@ public class AccountsPage extends BasePage {
         return new CreateNewAccountsPage();
     }
 
-    public AccountsPage openTestAccount() throws InterruptedException {
+    public AccountsPage openTestAccount(String accountName) throws InterruptedException {
         Thread.sleep(5000);
-        testAccount.click();
+        driver.findElement(By.xpath("//a[text()='"+accountName+"']")).click();
         return new AccountsPage();
     }
 
@@ -51,16 +52,7 @@ public class AccountsPage extends BasePage {
         editButtonOnTestAccount.click();
         Thread.sleep(5000);
         return new EditAccountPage();
-
-
-
     }
-
-//    public CreateNewAccountsPage clickOnNewAccountButton () {
-//     //waitUntilLoading(newAccountButton);
-//     newAccountButton.click();localSearch.findElement(By.xpath(""));
-//     return new CreateNewAccountsPage();
-//    }
 
     public Boolean isDisplayed(List<WebElement> elements, String accountName){
         for (WebElement element: elements) {
@@ -70,5 +62,12 @@ public class AccountsPage extends BasePage {
         }
         return false;
     }
+
+    public void checkAccountName(String accountName) throws InterruptedException {
+        Thread.sleep(5000);
+        Assert.assertTrue(isDisplayed(accountNames, accountName));
+
+    }
+
 
 }

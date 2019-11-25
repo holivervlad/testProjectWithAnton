@@ -18,7 +18,9 @@ public class CreateNewAccountTest extends BaseTest {
 
     @Test
     public void openAccountPageTest() throws InterruptedException {
+
         logInPage = base.openPlayGroundPage();
+        logInPage.driver.get("https://www.ukr.net");
         accountsPage = logInPage.logInPlayGround(UserData.salesUserEmail, UserData.salesUserPassword)
                 .openAccountsPage()
                 .clickOnNewAccountButton()
