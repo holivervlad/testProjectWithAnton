@@ -41,13 +41,14 @@ public class AccountsPage extends BasePage {
         return new CreateNewAccountsPage();
     }
 
-    public AccountsPage openTestAccount(String accountName) throws InterruptedException {
+    public AccountsPage openAccount(String accountName) throws InterruptedException {
         Thread.sleep(5000);
+
         driver.findElement(By.xpath("//a[text()='"+accountName+"']")).click();
         return new AccountsPage();
     }
 
-    public EditAccountPage openEditPageOnTestAccount() throws InterruptedException {
+    public EditAccountPage EditAccount() throws InterruptedException {
         Thread.sleep(5000);
         editButtonOnTestAccount.click();
         Thread.sleep(5000);

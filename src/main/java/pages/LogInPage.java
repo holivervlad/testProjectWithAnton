@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class LogInPage extends BasePage {
 
 
-    @FindBy(id = "username")
+    @FindBy(xpath = "//*[@id='username']")
     private WebElement emailField;
 
     @FindBy(id = "password")
@@ -24,9 +24,9 @@ public class LogInPage extends BasePage {
 
     public HomePage logInPlayGround(String emailData, String passwordData) {
 
-        emailField.clear();
+        //emailField.clear();
         emailField.sendKeys(emailData);
-        passwordField.clear();
+       // passwordField.clear();
         passwordField.sendKeys(passwordData);
         logInButton.click();
         return new HomePage();

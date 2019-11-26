@@ -22,11 +22,13 @@ public class CreateNewAccountsPage extends BasePage {
 
     @FindBy(xpath = "//span[text() = 'Date Picker']")
     private WebElement slaExpirationDateDropDownCalendar;
+
     @FindBy(xpath = "//td[@class = 'slds-is-today slds-is-selected uiDayInMonthCell']")
     private WebElement todaysDateInSlaExpirationDateDropDownCalendar;
 
     @FindBy(xpath = "//span[text() = 'SLA']/../..//div[@class = 'uiMenu']")
     private WebElement slaDropDown;
+
     @FindBy (xpath = "/html/body/div[8]/div/ul/li[2]/a")
     private WebElement valueInTheSlaDropDown;
 

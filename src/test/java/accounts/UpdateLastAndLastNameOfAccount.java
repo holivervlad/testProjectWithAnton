@@ -21,15 +21,15 @@ public class UpdateLastAndLastNameOfAccount extends BaseTest {
     @Test
     public void updateAccountTest() throws InterruptedException {
         logInPage = base.openPlayGroundPage();
-        accountsPage = logInPage.logInPlayGround(UserData.salesUserEmail, UserData.salesUserPassword)
+        accountsPage = logInPage.logInPlayGround(UserData.SALES_USER_EMAIL, UserData.SALES_USER_PASSWORD)
                 .openAccountsPage()
-                .openTestAccount("test Account")
-                .openEditPageOnTestAccount()
+                .openAccount("test Account")
+                .EditAccount()
                 .updateAccountNameInTestAccountTo("Hello World");
         //HomePage homePage = new HomePage();
         homePage.openAccountsPage()
-                .openTestAccount("Hello World")
-                .openEditPageOnTestAccount()
+                .openAccount("Hello World")
+                .EditAccount()
                 .returnOriginalNameOfAccountTo("test Account");
     }
 }

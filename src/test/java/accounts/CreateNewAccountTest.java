@@ -20,8 +20,8 @@ public class CreateNewAccountTest extends BaseTest {
     public void openAccountPageTest() throws InterruptedException {
 
         logInPage = base.openPlayGroundPage();
-        logInPage.driver.get("https://www.ukr.net");
-        accountsPage = logInPage.logInPlayGround(UserData.salesUserEmail, UserData.salesUserPassword)
+        logInPage.driver.get("https://curious-moose-50xavl-dev-ed.lightning.force.com/");
+        accountsPage = logInPage.logInPlayGround(UserData.SALES_USER_EMAIL, UserData.SALES_USER_PASSWORD)
                 .openAccountsPage()
                 .clickOnNewAccountButton()
                 .createNewAccount("test 2", "5000");

@@ -11,9 +11,9 @@ import pages.LogInPage;
 
 public class UserData {
 
-    public static String salesUserEmail = "vladyslav.holi+1ver@ctdev.io";
-    public static String salesUserPassword ="Testtest1";
+    public final static String SALES_USER_EMAIL  = "vladyslav.holi+1ver@ctdev.io";
+    public final static String SALES_USER_PASSWORD="Testtest1";
 
-    public static String adminUserEmail = "vladyslav.holiver@curious-moose-50xavl.com";
-    public static String adminUserPassword = "Test_123";
+    public final static String ADMIN_USER_EMAIL = "vladyslav.holiver@curious-moose-50xavl.com";
+    public final static String ADMIN_USER_PASSWORD = "Test_123";
 }
