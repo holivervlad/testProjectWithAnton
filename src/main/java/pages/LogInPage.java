@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class LogInPage extends BasePage {
 
 
-    @FindBy(xpath = "//*[@id='username']")
+    @FindBy(id = "username")
     private WebElement emailField;
 
     @FindBy(id = "password")

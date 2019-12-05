@@ -1,6 +1,7 @@
 package pages.accounts;
 
 import base.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -42,24 +43,28 @@ public class CreateNewAccountsPage extends BasePage {
     private WebElement employeesField;
 
     public AccountsPage createNewAccount(String accountName, String slaSerialNumber) throws InterruptedException {
-//        Thread.sleep(5000);
+//        //Thread.sleep(5000);
+        waitUntilLoading(accountNameField);
 //        accountNameField.sendKeys(accountName);
-//        Thread.sleep(5000);
+//        //Thread.sleep(5000);
+//        waitUntilLoading(activeDropDown);
 //        activeDropDown.click();
-//        //waitUntilLoading(chooseActiveinActiveDropDown);
-//        Thread.sleep(5000);
+//        waitUntilLoading(chooseActiveinActiveDropDown);
+//        //Thread.sleep(5000);
+//        waitUntilLoading(chooseActiveinActiveDropDown);
 //        chooseActiveinActiveDropDown.click();
-//        Thread.sleep(5000);
+//        //Thread.sleep(5000);
 
         //var 1:
+        Thread.sleep(5000);
 //        JavascriptExecutor jse = (JavascriptExecutor)driver;
 //        jse.executeScript("window.scrollBy(0,350)");
 
-        //var 2:
+        //var 2is not working:
 //        JavascriptExecutor jse = (JavascriptExecutor)driver;
 //        jse.executeScript("scroll(0, 1050);");
 
-        //var 3:
+        //var 3 is not working:
 //        JavascriptExecutor js = ((JavascriptExecutor) driver);
 //        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 
@@ -85,10 +90,10 @@ public class CreateNewAccountsPage extends BasePage {
 //        js.executeScript("window.scrollBy(0,450)", "");
 
         //var 7:
-//        WebElement scrollLocation = driver.findElement((By) slaExpirationDateDropDownCalendar);
-//        JavascriptExecutor js = (JavascriptExecutor)driver;
-//        js.executeScript("arguments[0].scrollIntoView(true);", scrollLocation);
-//        slaExpirationDateDropDownCalendar.click();
+        WebElement scrollLocation = driver.findElement((By) slaExpirationDateDropDownCalendar);
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", scrollLocation);
+        slaExpirationDateDropDownCalendar.click();
 
         //var 8:
 //        JavascriptExecutor js = (JavascriptExecutor)driver;
@@ -98,7 +103,8 @@ public class CreateNewAccountsPage extends BasePage {
 //        WebElement element = slaExpirationDateDropDownCalendar;
 //        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
 
-        //var 10:
+        //var 10 is not working:
+//        Thread.sleep(5000);
 //        JavascriptExecutor js = ((JavascriptExecutor) driver);
 //        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 //        Thread.sleep(10000);
@@ -106,13 +112,13 @@ public class CreateNewAccountsPage extends BasePage {
 //        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 //        js.executeScript("window.scrollBy(0,350)");
 
-        //var 11:
-        int i = 1;
-        while (i < 8) {
-            JavascriptExecutor js = ((JavascriptExecutor) driver);
-            js.executeScript("window.scrollTo(0,350)");
-            i++;
-        }
+        //var 11 is not working:
+//        int i = 1;
+//        while (i < 8) {
+//            JavascriptExecutor js = ((JavascriptExecutor) driver);
+//            js.executeScript("window.scrollTo(0,350)");
+//            i++;
+//        }
        // js.executeScript("window.scrollBy(0,1000)");
 
 //        Thread.sleep(10000);

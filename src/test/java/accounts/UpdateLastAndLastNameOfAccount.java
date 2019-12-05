@@ -2,6 +2,8 @@ package accounts;
 
 import base.BaseTest;
 import data.UserData;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.accounts.AccountsPage;
 import pages.accounts.CreateNewAccountsPage;
@@ -25,9 +27,14 @@ public class UpdateLastAndLastNameOfAccount extends BaseTest {
                 .openAccountsPage()
                 .openAccount("test Account")
                 .EditAccount()
-                .updateAccountNameInTestAccountTo("Hello World");
-        //HomePage homePage = new HomePage();
-        homePage.openAccountsPage()
+                .updateAccountNameInTestAccountTo("Hello World")
+                .returnToAccountsPage();
+        accountsPage
+                .isAccountAvailable("Hello World");
+    }
+        @AfterMethod
+                public void afterMethodActions() throws InterruptedException {
+        accountsPage
                 .openAccount("Hello World")
                 .EditAccount()
                 .returnOriginalNameOfAccountTo("test Account");

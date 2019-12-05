@@ -17,4 +17,8 @@ public class BasePage extends Base{
         WebDriverWait wait = new WebDriverWait(driver, 1000);
         wait.until(ExpectedConditions.visibilityOfAllElements(element));
     }
+
+    protected BasePage() {
+        PageFactory.initElements(driver, this);
+    }
 }

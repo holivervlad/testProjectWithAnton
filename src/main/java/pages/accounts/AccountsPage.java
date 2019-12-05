@@ -1,12 +1,15 @@
 package pages.accounts;
 
+import base.Base;
 import base.BasePage;
+import configurationManager.BaseConfiguration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 
 public class AccountsPage extends BasePage {
@@ -35,6 +38,12 @@ public class AccountsPage extends BasePage {
     @FindBy(xpath = "//tbody//tr//th")
     private List<WebElement> accountNames;
 
+    @FindBy(xpath = "//button[@title = 'Show Navigation Menu']")
+    private WebElement tabDropDown;
+
+    @FindBy(xpath = "//span[@class='slds-media__body']//span[text() = 'Accounts']")
+    private WebElement accountsTab;
+
     public CreateNewAccountsPage clickOnNewAccountButton () throws InterruptedException {
         Thread.sleep(5000);
         newAccountButton.click();
@@ -55,7 +64,7 @@ public class AccountsPage extends BasePage {
         return new EditAccountPage();
     }
 
-    public Boolean isDisplayed(List<WebElement> elements, String accountName){
+    public Boolean isAccountPresentOnTheList(List<WebElement> elements, String accountName){
         for (WebElement element: elements) {
             if (element.findElement(By.xpath("//span[text()='"+accountName+"']"))
                     .isDisplayed())
@@ -64,10 +73,28 @@ public class AccountsPage extends BasePage {
         return false;
     }
 
+    public Boolean isAccountAvailable(String accountName) {
+        try {
+            return BaseConfiguration.getDriver().findElement(By.xpath("//span[text()='" + accountName + "']"))
+                    .isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
     public void checkAccountName(String accountName) throws InterruptedException {
         Thread.sleep(5000);
-        Assert.assertTrue(isDisplayed(accountNames, accountName));
+        Assert.assertTrue(isAccountPresentOnTheList(accountNames, accountName));
 
+    }
+
+    public AccountsPage returnToAccountsPage() throws InterruptedException {
+        Thread.sleep(10000);
+        tabDropDown.click();
+        Thread.sleep(10000);
+        accountsTab.click();
+        Thread.sleep(10000);
+        return this;
     }
 
 
