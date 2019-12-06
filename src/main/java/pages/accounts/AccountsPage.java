@@ -85,7 +85,7 @@ public class AccountsPage extends BasePage {
     public void checkAccountName(String accountName) throws InterruptedException {
         Thread.sleep(5000);
         Assert.assertTrue(isAccountPresentOnTheList(accountNames, accountName));
-
+Delete assertion on the pages;;;
     }
 
     public AccountsPage returnToAccountsPage() throws InterruptedException {

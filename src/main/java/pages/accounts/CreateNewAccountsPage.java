@@ -57,8 +57,7 @@ public class CreateNewAccountsPage extends BasePage {
 
         //var 1:
         Thread.sleep(5000);
-//        JavascriptExecutor jse = (JavascriptExecutor)driver;
-//        jse.executeScript("window.scrollBy(0,350)");
+//        JavascriptExecutor jse = (JavascriptExecuto
 
         //var 2is not working:
 //        JavascriptExecutor jse = (JavascriptExecutor)driver;

@@ -3,10 +3,7 @@ package pages.accounts;
 import base.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 import pages.HomePage;
-
-import java.util.List;
 
 public class EditAccountPage extends BasePage {
 
@@ -17,7 +14,7 @@ public class EditAccountPage extends BasePage {
     private WebElement accountNameFieldOnTestAccount;
 
     @FindBy(xpath = "//button[@title = 'Save']")
-    private WebElement saveButtonOnEditPageOfTestAccount;
+    private WebElement saveButton;
 
 
 
@@ -27,13 +24,10 @@ public class EditAccountPage extends BasePage {
         Thread.sleep(5000);
         accountNameFieldOnTestAccount.sendKeys(newAccountName);
         Thread.sleep(5000);
-        saveButtonOnEditPageOfTestAccount.click();
+        saveButton.click();
         Thread.sleep(5000);
         return new AccountsPage();
     }
-
-
-
 
     public AccountsPage returnOriginalNameOfAccountTo(String oldAccountName) throws InterruptedException {
         Thread.sleep(5000);
@@ -41,7 +35,7 @@ public class EditAccountPage extends BasePage {
         Thread.sleep(5000);
         accountNameFieldOnTestAccount.sendKeys(oldAccountName);
         Thread.sleep(5000);
-        saveButtonOnEditPageOfTestAccount.click();
+        saveButton.click();
         return new AccountsPage();
     }
 }
