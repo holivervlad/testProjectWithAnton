@@ -8,7 +8,7 @@ import pages.accounts.CreateNewAccountsPage;
 import pages.HomePage;
 import pages.LogInPage;
 
-public class CreateNewAccountTest extends BaseTest {
+public class CreateNewAccount extends BaseTest {
     public LogInPage logInPage;
     public HomePage homePage;
     public AccountsPage accountsPage;
@@ -17,7 +17,7 @@ public class CreateNewAccountTest extends BaseTest {
 
 
     @Test
-    public void openAccountPageTest() throws InterruptedException {
+    public void createAccount() throws InterruptedException {
 
         logInPage = base.openPlayGroundPage();
         logInPage.driver.get("https://curious-moose-50xavl-dev-ed.lightning.force.com/");
