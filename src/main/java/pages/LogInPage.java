@@ -12,7 +12,6 @@ import java.util.concurrent.TimeUnit;
 
 public class LogInPage extends BasePage {
 
-
     @FindBy(id = "username")
     private WebElement emailField;
 
@@ -23,10 +22,7 @@ public class LogInPage extends BasePage {
     private WebElement logInButton;
 
     public HomePage logInPlayGround(String emailData, String passwordData) {
-
-        //emailField.clear();
         emailField.sendKeys(emailData);
-       // passwordField.clear();
         passwordField.sendKeys(passwordData);
         logInButton.click();
         return new HomePage();

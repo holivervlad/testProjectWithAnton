@@ -13,7 +13,7 @@ public class CreateNewAccountsPage extends BasePage {
     private WebElement accountNameField;
 
     @FindBy(xpath = "//button[@title = 'Save']")
-    private WebElement saveNewCcountButton;
+    private WebElement saveButton;
 
     @FindBy(xpath = "//span[text() = 'Active']/../..//div[@class = 'uiMenu']")
     private WebElement activeDropDown;
@@ -42,21 +42,16 @@ public class CreateNewAccountsPage extends BasePage {
     @FindBy(xpath = "//span[text() = 'Employees']")
     private WebElement employeesField;
 
-    public AccountsPage createNewAccount(String accountName, String slaSerialNumber) throws InterruptedException {
-//        //Thread.sleep(5000);
+    public AccountsPage createNewAccount(String accountName, String slaSerialNumber) {
         waitUntilLoading(accountNameField);
-//        accountNameField.sendKeys(accountName);
-//        //Thread.sleep(5000);
-//        waitUntilLoading(activeDropDown);
-//        activeDropDown.click();
-//        waitUntilLoading(chooseActiveinActiveDropDown);
-//        //Thread.sleep(5000);
-//        waitUntilLoading(chooseActiveinActiveDropDown);
-//        chooseActiveinActiveDropDown.click();
-//        //Thread.sleep(5000);
+        accountNameField.sendKeys(accountName);
+        waitUntilLoading(activeDropDown);
+        activeDropDown.click();
+        waitUntilLoading(chooseActiveinActiveDropDown);
+        waitUntilLoading(chooseActiveinActiveDropDown);
+        chooseActiveinActiveDropDown.click();
 
         //var 1:
-        Thread.sleep(5000);
 //        JavascriptExecutor jse = (JavascriptExecuto
 
         //var 2is not working:
@@ -89,10 +84,10 @@ public class CreateNewAccountsPage extends BasePage {
 //        js.executeScript("window.scrollBy(0,450)", "");
 
         //var 7:
-        WebElement scrollLocation = driver.findElement((By) slaExpirationDateDropDownCalendar);
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", scrollLocation);
-        slaExpirationDateDropDownCalendar.click();
+//        WebElement scrollLocation = driver.findElement((By) slaExpirationDateDropDownCalendar);
+//        JavascriptExecutor js = (JavascriptExecutor)driver;
+//        js.executeScript("arguments[0].scrollIntoView(true);", scrollLocation);
+//        slaExpirationDateDropDownCalendar.click();
 
         //var 8:
 //        JavascriptExecutor js = (JavascriptExecutor)driver;
@@ -120,23 +115,19 @@ public class CreateNewAccountsPage extends BasePage {
 //        }
        // js.executeScript("window.scrollBy(0,1000)");
 
-//        Thread.sleep(10000);
-//        slaExpirationDateDropDownCalendar.click();
-//        //waitUntilLoading(todaysDateInSlaExpirationDateDropDownCalendar);
-//        Thread.sleep(5000);
-//        todaysDateInSlaExpirationDateDropDownCalendar.click();
-//        //waitUntilLoading(slaDropDown);
-//        Thread.sleep(5000);
-//        slaDropDown.click();
-//        //waitUntilLoading(valueInTheSlaDropDown);
-//        Thread.sleep(5000);
-//        valueInTheSlaDropDown.click();
-//        //waitUntilLoading(slaSerialNumberField);
-//        Thread.sleep(5000);
-//        slaSerialNumberField.sendKeys(slaSerialNumber);
-//        //waitUntilLoading(saveNewCcountButton);
-//        Thread.sleep(5000);
-//        saveNewCcountButton.click();
+
+
+        slaExpirationDateDropDownCalendar.click();
+        //waitUntilLoading(todaysDateInSlaExpirationDateDropDownCalendar);
+        todaysDateInSlaExpirationDateDropDownCalendar.click();
+        //waitUntilLoading(slaDropDown);
+        slaDropDown.click();
+        //waitUntilLoading(valueInTheSlaDropDown);
+        valueInTheSlaDropDown.click();
+        //waitUntilLoading(slaSerialNumberField);
+        slaSerialNumberField.sendKeys(slaSerialNumber);
+        //waitUntilLoading(saveButton);
+        saveButton.click();
         return new AccountsPage();
     }
 }

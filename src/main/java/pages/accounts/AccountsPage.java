@@ -1,12 +1,10 @@
 package pages.accounts;
 
-import base.Base;
 import base.BasePage;
 import configurationManager.BaseConfiguration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -33,7 +31,7 @@ public class AccountsPage extends BasePage {
     private WebElement testAccount;
 
     @FindBy(xpath = "//div[@title = 'Edit']")
-    private WebElement editButtonOnTestAccount;
+    private WebElement editButton;
 
     @FindBy(xpath = "//tbody//tr//th")
     private List<WebElement> accountNames;
@@ -44,23 +42,18 @@ public class AccountsPage extends BasePage {
     @FindBy(xpath = "//span[@class='slds-media__body']//span[text() = 'Accounts']")
     private WebElement accountsTab;
 
-    public CreateNewAccountsPage clickOnNewAccountButton () throws InterruptedException {
-        Thread.sleep(5000);
+    public CreateNewAccountsPage clickOnNewAccountButton () {
         newAccountButton.click();
         return new CreateNewAccountsPage();
     }
 
-    public AccountsPage openAccount(String accountName) throws InterruptedException {
-        Thread.sleep(5000);
-
+    public AccountsPage openAccount(String accountName) {
         driver.findElement(By.xpath("//a[text()='"+accountName+"']")).click();
         return new AccountsPage();
     }
 
-    public EditAccountPage EditAccount() throws InterruptedException {
-        Thread.sleep(5000);
-        editButtonOnTestAccount.click();
-        Thread.sleep(5000);
+    public EditAccountPage OpenEditAccountPage() {
+        editButton.click();
         return new EditAccountPage();
     }
 
@@ -82,20 +75,9 @@ public class AccountsPage extends BasePage {
         }
     }
 
-    public void checkAccountName(String accountName) throws InterruptedException {
-        Thread.sleep(5000);
-        Assert.assertTrue(isAccountPresentOnTheList(accountNames, accountName));
-Delete assertion on the pages;;;
-    }
-
-    public AccountsPage returnToAccountsPage() throws InterruptedException {
-        Thread.sleep(10000);
+    public AccountsPage returnToAccountsPage() {
         tabDropDown.click();
-        Thread.sleep(10000);
         accountsTab.click();
-        Thread.sleep(10000);
         return this;
     }
-
-
 }

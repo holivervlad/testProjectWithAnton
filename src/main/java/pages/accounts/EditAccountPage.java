@@ -11,30 +11,21 @@ public class EditAccountPage extends BasePage {
     HomePage homePage;
 
     @FindBy(xpath = "//div[starts-with(@class,'modal-container')]//span[text() = 'Account Name']/../..//input")
-    private WebElement accountNameFieldOnTestAccount;
+    private WebElement accountNameField;
 
     @FindBy(xpath = "//button[@title = 'Save']")
     private WebElement saveButton;
 
-
-
-    public AccountsPage updateAccountNameInTestAccountTo(String newAccountName) throws InterruptedException {
-        Thread.sleep(10000);
-        accountNameFieldOnTestAccount.clear();
-        Thread.sleep(5000);
-        accountNameFieldOnTestAccount.sendKeys(newAccountName);
-        Thread.sleep(5000);
+    public AccountsPage updateAccountName(String newAccountName) {
+        accountNameField.clear();
+        accountNameField.sendKeys(newAccountName);
         saveButton.click();
-        Thread.sleep(5000);
         return new AccountsPage();
     }
 
-    public AccountsPage returnOriginalNameOfAccountTo(String oldAccountName) throws InterruptedException {
-        Thread.sleep(5000);
-        accountNameFieldOnTestAccount.clear();
-        Thread.sleep(5000);
-        accountNameFieldOnTestAccount.sendKeys(oldAccountName);
-        Thread.sleep(5000);
+    public AccountsPage returnOriginalNameOfAccount(String oldAccountName) throws InterruptedException {
+        accountNameField.clear();
+        accountNameField.sendKeys(oldAccountName);
         saveButton.click();
         return new AccountsPage();
     }

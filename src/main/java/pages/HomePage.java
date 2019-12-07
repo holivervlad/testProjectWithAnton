@@ -13,12 +13,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//span[@class='slds-media__body']//span[text() = 'Accounts']")
     private WebElement accountsTab;
 
-    public AccountsPage openAccountsPage() throws InterruptedException {
-        Thread.sleep(10000);
+    public AccountsPage openAccountsPage() {
         tabDropDown.click();
-        Thread.sleep(10000);
         accountsTab.click();
-        Thread.sleep(10000);
         return new AccountsPage();
     }
 
