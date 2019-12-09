@@ -43,6 +43,7 @@ public class AccountsPage extends BasePage {
     private WebElement accountsTab;
 
     public CreateNewAccountsPage clickOnNewAccountButton () {
+        waitUntilLoading(newAccountButton);
         newAccountButton.click();
         return new CreateNewAccountsPage();
     }

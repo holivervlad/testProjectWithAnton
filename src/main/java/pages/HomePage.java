@@ -13,8 +13,11 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//span[@class='slds-media__body']//span[text() = 'Accounts']")
     private WebElement accountsTab;
 
-    public AccountsPage openAccountsPage() {
+    public AccountsPage openAccountsPage() throws InterruptedException {
+        waitUntilLoading(tabDropDown);
         tabDropDown.click();
+        waitUntilLoading(accountsTab);
+        Thread.sleep(5000);
         accountsTab.click();
         return new AccountsPage();
     }

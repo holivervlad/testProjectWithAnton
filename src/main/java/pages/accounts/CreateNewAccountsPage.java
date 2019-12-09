@@ -3,6 +3,7 @@ package pages.accounts;
 import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.accounts.AccountsPage;
@@ -116,17 +117,27 @@ public class CreateNewAccountsPage extends BasePage {
        // js.executeScript("window.scrollBy(0,1000)");
 
 
+// varNew
+//        WebElement scroll = driver.findElement((By) slaExpirationDateDropDownCalendar);
+//        scroll.sendKeys(Keys.PAGE_DOWN);
+
+
+        if(activeDropDown.isDisplayed()) { slaExpirationDateDropDownCalendar.click();
+        waitUntilLoading(todaysDateInSlaExpirationDateDropDownCalendar);} else {
+
+        slaDropDown.click();
+        waitUntilLoading(valueInTheSlaDropDown);}
 
         slaExpirationDateDropDownCalendar.click();
-        //waitUntilLoading(todaysDateInSlaExpirationDateDropDownCalendar);
+        waitUntilLoading(todaysDateInSlaExpirationDateDropDownCalendar);
+
         todaysDateInSlaExpirationDateDropDownCalendar.click();
-        //waitUntilLoading(slaDropDown);
-        slaDropDown.click();
-        //waitUntilLoading(valueInTheSlaDropDown);
+        waitUntilLoading(slaDropDown);
+
         valueInTheSlaDropDown.click();
-        //waitUntilLoading(slaSerialNumberField);
+        waitUntilLoading(slaSerialNumberField);
         slaSerialNumberField.sendKeys(slaSerialNumber);
-        //waitUntilLoading(saveButton);
+        waitUntilLoading(saveButton);
         saveButton.click();
         return new AccountsPage();
     }

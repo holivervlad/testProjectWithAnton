@@ -18,14 +18,12 @@ public class CreateNewAccount extends BaseTest {
 
     @Test
     public void createAccount() throws InterruptedException {
-
         logInPage = base.openPlayGroundPage();
         logInPage.driver.get("https://curious-moose-50xavl-dev-ed.lightning.force.com/");
         accountsPage = logInPage.logInPlayGround(UserData.SALES_USER_EMAIL, UserData.SALES_USER_PASSWORD)
                 .openAccountsPage()
                 .clickOnNewAccountButton()
                 .createNewAccount("test 2", "5000");
-
     }
 }
 
