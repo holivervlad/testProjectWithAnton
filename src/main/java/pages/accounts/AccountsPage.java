@@ -42,7 +42,7 @@ public class AccountsPage extends BasePage {
     @FindBy(xpath = "//span[@class='slds-media__body']//span[text() = 'Accounts']")
     private WebElement accountsTab;
 
-
+CreateNewAccountsPage createNewAccountsPage;
 
 
     public CreateNewAccountsPage clickOnNewAccountButton () {
@@ -52,7 +52,6 @@ public class AccountsPage extends BasePage {
     }
 
     public AccountsPage openAccount(String accountName) {
-        waitUntilLoading((WebElement) accountNames);
         driver.findElement(By.xpath("//a[text()='"+accountName+"']")).click();
         return new AccountsPage();
     }
@@ -87,5 +86,14 @@ public class AccountsPage extends BasePage {
         waitUntilLoading(accountsTab);
         accountsTab.click();
         return this;
+    }
+
+    public boolean isAccountSaved() {
+        try {
+            return BaseConfiguration.getDriver().findElement(By.xpath("//span[@class = 'custom-truncate uiOutputText' and contains(text(), 'te')]"))
+                    .isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     }
 }

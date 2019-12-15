@@ -18,7 +18,6 @@ public class HomePage extends BasePage {
         Thread.sleep(5000);
         tabDropDown.click();
         Thread.sleep(5000);
-        waitUntilLoading(accountsTab);
         accountsTab.click();
         return new AccountsPage();
     }

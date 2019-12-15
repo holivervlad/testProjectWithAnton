@@ -23,7 +23,9 @@ public class CreateNewAccount extends BaseTest {
         accountsPage = logInPage.logInPlayGround(UserData.SALES_USER_EMAIL, UserData.SALES_USER_PASSWORD)
                 .openAccountsPage()
                 .clickOnNewAccountButton()
-                .createNewAccount("test 2", "5000");
+                .createNewAccount();
+        accountsPage
+                .isAccountSaved();
     }
 }
 

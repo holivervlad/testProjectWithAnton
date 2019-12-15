@@ -36,6 +36,7 @@ public class CRUDAccount extends BaseTest {
         accountsPage
                 .openAccount("Hello World")
                 .OpenEditAccountPage()
-                .returnOriginalNameOfAccount("test Account");
+                .returnOriginalNameOfAccount("test Account")
+                .isAccountAvailable("test Account");
     }
 }
