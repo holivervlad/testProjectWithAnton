@@ -17,15 +17,19 @@ public class EditAccountPage extends BasePage {
     private WebElement saveButton;
 
     public AccountsPage updateAccountName(String newAccountName) {
+        waitUntilLoading(accountNameField);
         accountNameField.clear();
         accountNameField.sendKeys(newAccountName);
+        waitUntilLoading(saveButton);
         saveButton.click();
         return new AccountsPage();
     }
 
     public AccountsPage returnOriginalNameOfAccount(String oldAccountName) throws InterruptedException {
+        waitUntilLoading(accountNameField);
         accountNameField.clear();
         accountNameField.sendKeys(oldAccountName);
+        waitUntilLoading(saveButton);
         saveButton.click();
         return new AccountsPage();
     }

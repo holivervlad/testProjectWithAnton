@@ -42,6 +42,9 @@ public class AccountsPage extends BasePage {
     @FindBy(xpath = "//span[@class='slds-media__body']//span[text() = 'Accounts']")
     private WebElement accountsTab;
 
+
+
+
     public CreateNewAccountsPage clickOnNewAccountButton () {
         waitUntilLoading(newAccountButton);
         newAccountButton.click();
@@ -49,11 +52,13 @@ public class AccountsPage extends BasePage {
     }
 
     public AccountsPage openAccount(String accountName) {
+        waitUntilLoading((WebElement) accountNames);
         driver.findElement(By.xpath("//a[text()='"+accountName+"']")).click();
         return new AccountsPage();
     }
 
     public EditAccountPage OpenEditAccountPage() {
+        waitUntilLoading(editButton);
         editButton.click();
         return new EditAccountPage();
     }
@@ -77,7 +82,9 @@ public class AccountsPage extends BasePage {
     }
 
     public AccountsPage returnToAccountsPage() {
+        waitUntilLoading(tabDropDown);
         tabDropDown.click();
+        waitUntilLoading(accountsTab);
         accountsTab.click();
         return this;
     }

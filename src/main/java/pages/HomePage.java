@@ -14,10 +14,11 @@ public class HomePage extends BasePage {
     private WebElement accountsTab;
 
     public AccountsPage openAccountsPage() throws InterruptedException {
-        waitUntilLoading(tabDropDown);
-        tabDropDown.click();
-        waitUntilLoading(accountsTab);
+        //waitUntilLoading(tabDropDown);
         Thread.sleep(5000);
+        tabDropDown.click();
+        Thread.sleep(5000);
+        waitUntilLoading(accountsTab);
         accountsTab.click();
         return new AccountsPage();
     }
