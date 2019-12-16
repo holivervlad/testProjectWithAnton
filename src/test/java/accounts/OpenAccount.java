@@ -7,12 +7,12 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LogInPage;
 
-public class OpenAccountPageTest extends BaseTest {
+public class OpenAccount extends BaseTest {
     public LogInPage logInPage;
     public HomePage homePage;
 
     @Test
-    public void openAccountPageTest() throws InterruptedException {
+    public void openAccount() {
         logInPage = base.openPlayGroundPage();
         homePage = logInPage.logInPlayGround(UserData.SALES_USER_EMAIL, UserData.SALES_USER_PASSWORD);
     }

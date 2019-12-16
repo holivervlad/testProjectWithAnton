@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 public class ContactPage {
 
     @FindBy(xpath = "//div[text() = 'New']")
-    private WebElement newButtonForNewContactcreating;
+    private WebElement newButton;
 
     @FindBy(xpath = "//div[text() = 'Import']")
     private WebElement ImpotnButton;
@@ -21,7 +21,7 @@ public class ContactPage {
     private WebElement listViewButton;
 
     @FindBy(xpath = "//button[@title='List View Controls']")
-    private WebElement listViewsControlsButton;
+    private WebElement listViewControlsButton;
 
     @FindBy(xpath = "//button[@title='Display as Table']")
     private WebElement displayAsTableButton;

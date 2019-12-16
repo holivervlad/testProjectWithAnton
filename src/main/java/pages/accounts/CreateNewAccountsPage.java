@@ -1,11 +1,18 @@
 package pages.accounts;
 
 import base.BasePage;
+import configurationManager.BaseConfiguration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 import pages.accounts.AccountsPage;
+
+import javax.swing.*;
+import java.util.NoSuchElementException;
 
 public class CreateNewAccountsPage extends BasePage {
 
@@ -13,27 +20,27 @@ public class CreateNewAccountsPage extends BasePage {
     private WebElement accountNameField;
 
     @FindBy(xpath = "//button[@title = 'Save']")
-    private WebElement saveNewCcountButton;
+    private WebElement saveButton;
 
     @FindBy(xpath = "//span[text() = 'Active']/../..//div[@class = 'uiMenu']")
     private WebElement activeDropDown;
 
-    @FindBy (xpath = "//div[@class = 'select-options']//a[text() = 'Yes']")
+    @FindBy(xpath = "//div[@class = 'select-options']//a[text() = 'Yes']")
     private WebElement chooseActiveinActiveDropDown;
 
-    @FindBy(xpath = "//span[text() = 'Date Picker']")
+    @FindBy(xpath = "//span[text() = 'SLA Expiration Date']/../..//input")
     private WebElement slaExpirationDateDropDownCalendar;
 
-    @FindBy(xpath = "//td[@class = 'slds-is-today slds-is-selected uiDayInMonthCell']")
+    @FindBy(xpath = "//td[@class='slds-is-today slds-is-selected uiDayInMonthCell']/span")
     private WebElement todaysDateInSlaExpirationDateDropDownCalendar;
 
     @FindBy(xpath = "//span[text() = 'SLA']/../..//div[@class = 'uiMenu']")
     private WebElement slaDropDown;
 
-    @FindBy (xpath = "/html/body/div[8]/div/ul/li[2]/a")
+    @FindBy(xpath = "//li/a[@title = 'Gold']")
     private WebElement valueInTheSlaDropDown;
 
-    @FindBy(xpath = "//span[text() = 'SLA Expiration Date']/../..//div[@class = 'uiMenu']")
+    @FindBy(xpath = "//span[text() = 'SLA Serial Number']/../..//input")
     private WebElement slaSerialNumberField;
 
     @FindBy(xpath = "//span[text() = 'Billing Street']/../..//textarea[@placeholder = 'Billing Street']")
@@ -42,102 +49,43 @@ public class CreateNewAccountsPage extends BasePage {
     @FindBy(xpath = "//span[text() = 'Employees']")
     private WebElement employeesField;
 
-    public AccountsPage createNewAccount(String accountName, String slaSerialNumber) throws InterruptedException {
-//        //Thread.sleep(5000);
+    @FindBy(xpath = "//span[text() = 'Customer Priority']/../..//div[@class = 'uiMenu']")
+    private WebElement customerPriorityDropDown;
+
+    @FindBy(xpath = "//div[@id = 'brandBand_1']")
+    private WebElement newAccountPopUp;
+
+    public AccountsPage createNewAccount() {
         waitUntilLoading(accountNameField);
-//        accountNameField.sendKeys(accountName);
-//        //Thread.sleep(5000);
-//        waitUntilLoading(activeDropDown);
-//        activeDropDown.click();
-//        waitUntilLoading(chooseActiveinActiveDropDown);
-//        //Thread.sleep(5000);
-//        waitUntilLoading(chooseActiveinActiveDropDown);
-//        chooseActiveinActiveDropDown.click();
-//        //Thread.sleep(5000);
+        double rand = Math.random();
+        String accountName = "te" + rand;
+        accountNameField.sendKeys(accountName);
 
-        //var 1:
-        Thread.sleep(5000);
-//        JavascriptExecutor jse = (JavascriptExecutor)driver;
-//        jse.executeScript("window.scrollBy(0,350)");
-
-        //var 2is not working:
-//        JavascriptExecutor jse = (JavascriptExecutor)driver;
-//        jse.executeScript("scroll(0, 1050);");
-
-        //var 3 is not working:
-//        JavascriptExecutor js = ((JavascriptExecutor) driver);
-//        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-
-        //var 4:
-//        JavascriptExecutor js = ((JavascriptExecutor) driver);
-//        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-
-        //var 5:
-//        Actions dragger = new Actions(driver);
-//        WebElement draggablePartOfScrollbar = driver.findElement((By) slaExpirationDateDropDownCalendar);
-//
-//        // drag downwards
-//        int numberOfPixelsToDragTheScrollbarDown = 50;
-//        for (int i=10;i<500;i=i+numberOfPixelsToDragTheScrollbarDown){
-//            try{
-//                // this causes a gradual drag of the scroll bar, 10 units at a time
-//                dragger.moveToElement(draggablePartOfScrollbar).clickAndHold().moveByOffset(0,numberOfPixelsToDragTheScrollbarDown).release().perform();
-//                Thread.sleep(1000L);
-//            }catch(Exception e1){}
-//        }
-        //var 6:
-//        JavascriptExecutor js = ((JavascriptExecutor) driver);
-//        js.executeScript("window.scrollBy(0,450)", "");
-
-        //var 7:
-        WebElement scrollLocation = driver.findElement((By) slaExpirationDateDropDownCalendar);
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", scrollLocation);
+        waitUntilLoading(activeDropDown);
+        activeDropDown.click();
+        waitUntilLoading(chooseActiveinActiveDropDown);
+        waitUntilLoading(chooseActiveinActiveDropDown);
+        chooseActiveinActiveDropDown.click();
+        Actions actions = new Actions(driver);
+        actions.moveToElement(slaDropDown);
+        actions.perform();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", slaDropDown);
+        waitUntilLoading(slaDropDown);
+        slaDropDown.click();
+        waitUntilLoading(valueInTheSlaDropDown);
+        valueInTheSlaDropDown.click();
         slaExpirationDateDropDownCalendar.click();
+        waitUntilLoading(todaysDateInSlaExpirationDateDropDownCalendar);
+        todaysDateInSlaExpirationDateDropDownCalendar.click();
+        waitUntilLoading(slaSerialNumberField);
+        String slaSerialNumber = "5000"+rand;
+        slaSerialNumberField.sendKeys(slaSerialNumber);
 
-        //var 8:
-//        JavascriptExecutor js = (JavascriptExecutor)driver;
-//        js.executeScript("window.scrollTo(-300, document.body.scrollHeight)");
 
-        //var 9:
-//        WebElement element = slaExpirationDateDropDownCalendar;
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
-
-        //var 10 is not working:
-//        Thread.sleep(5000);
-//        JavascriptExecutor js = ((JavascriptExecutor) driver);
-//        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-//        Thread.sleep(10000);
-//        employeesField.click();
-//        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-//        js.executeScript("window.scrollBy(0,350)");
-
-        //var 11 is not working:
-//        int i = 1;
-//        while (i < 8) {
-//            JavascriptExecutor js = ((JavascriptExecutor) driver);
-//            js.executeScript("window.scrollTo(0,350)");
-//            i++;
-//        }
-       // js.executeScript("window.scrollBy(0,1000)");
-
-//        Thread.sleep(10000);
-//        slaExpirationDateDropDownCalendar.click();
-//        //waitUntilLoading(todaysDateInSlaExpirationDateDropDownCalendar);
-//        Thread.sleep(5000);
-//        todaysDateInSlaExpirationDateDropDownCalendar.click();
-//        //waitUntilLoading(slaDropDown);
-//        Thread.sleep(5000);
-//        slaDropDown.click();
-//        //waitUntilLoading(valueInTheSlaDropDown);
-//        Thread.sleep(5000);
-//        valueInTheSlaDropDown.click();
-//        //waitUntilLoading(slaSerialNumberField);
-//        Thread.sleep(5000);
-//        slaSerialNumberField.sendKeys(slaSerialNumber);
-//        //waitUntilLoading(saveNewCcountButton);
-//        Thread.sleep(5000);
-//        saveNewCcountButton.click();
+        waitUntilLoading(saveButton);
+        saveButton.click();
         return new AccountsPage();
     }
+
+
 }
