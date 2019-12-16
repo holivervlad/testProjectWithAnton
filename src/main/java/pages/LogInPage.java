@@ -1,6 +1,7 @@
 package pages;
 
 import base.BasePage;
+import data.UserData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,9 +24,9 @@ public class LogInPage extends BasePage {
 
     public HomePage logInPlayGround(String emailData, String passwordData) {
 
-        emailField.clear();
+        //emailField.clear();
         emailField.sendKeys(emailData);
-        passwordField.clear();
+       // passwordField.clear();
         passwordField.sendKeys(passwordData);
         logInButton.click();
         return new HomePage();

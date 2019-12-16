@@ -1,27 +1,26 @@
 package pages;
 
 import base.BasePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.concurrent.TimeUnit;
+import pages.accounts.AccountsPage;
 
 public class HomePage extends BasePage {
 
-    @FindBy(xpath = "//div[@class = 'slds-grid slds-has-flexi-truncate navUL']//a[@title = 'Accounts']/span")
-    private WebElement accountTab;
+    @FindBy(xpath = "//button[@title = 'Show Navigation Menu']")
+    private WebElement tabDropDown;
 
-    public HomePage() {
+    @FindBy(xpath = "//span[@class='slds-media__body']//span[text() = 'Accounts']")
+    private WebElement accountsTab;
+
+    public AccountsPage openAccountsPage() throws InterruptedException {
+        Thread.sleep(10000);
+        tabDropDown.click();
+        Thread.sleep(10000);
+        accountsTab.click();
+        Thread.sleep(10000);
+        return new AccountsPage();
     }
 
-
-    public AccountPage clickOnAccountTab() {
-    accountTab.click();
-    return new AccountPage();
-        }
-    }
+}
 

@@ -1,14 +1,24 @@
 package base;
 
 import configurationManager.BaseConfiguration;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.internal.TouchAction;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BasePage {
-    private WebDriver driver = BaseConfiguration.getDriver();
+
+import static configurationManager.BaseConfiguration.getDriver;
+
+public class BasePage extends Base{
+    public WebDriver driver = BaseConfiguration.getDriver();
+
+    public void waitUntilLoading(WebElement element){
+        WebDriverWait wait = new WebDriverWait(driver, 1000);
+        wait.until(ExpectedConditions.visibilityOfAllElements(element));
+    }
+
     protected BasePage() {
         PageFactory.initElements(driver, this);
     }
-
-
 }
