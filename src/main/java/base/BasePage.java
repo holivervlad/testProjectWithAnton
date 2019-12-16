@@ -13,8 +13,8 @@ import static configurationManager.BaseConfiguration.getDriver;
 public class BasePage extends Base{
     public WebDriver driver = BaseConfiguration.getDriver();
 
-    public void waitUntilLoading(WebElement element){
-        WebDriverWait wait = new WebDriverWait(driver, 1000);
+    public void waitUntilLoading(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, 8000);
         wait.until(ExpectedConditions.visibilityOfAllElements(element));
     }
 

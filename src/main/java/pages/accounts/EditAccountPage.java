@@ -25,8 +25,7 @@ public class EditAccountPage extends BasePage {
         return new AccountsPage();
     }
 
-    public AccountsPage returnOriginalNameOfAccount(String oldAccountName) throws InterruptedException {
-        waitUntilLoading(accountNameField);
+    public AccountsPage returnOriginalNameOfAccount(String oldAccountName) {
         accountNameField.clear();
         accountNameField.sendKeys(oldAccountName);
         waitUntilLoading(saveButton);

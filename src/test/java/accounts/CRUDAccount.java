@@ -20,7 +20,7 @@ public class CRUDAccount extends BaseTest {
 
 
     @Test
-    public void updateAccountName() throws InterruptedException {
+    public void updateAccountName() {
         logInPage = base.openPlayGroundPage();
         accountsPage = logInPage.logInPlayGround(UserData.SALES_USER_EMAIL, UserData.SALES_USER_PASSWORD)
                 .openAccountsPage()

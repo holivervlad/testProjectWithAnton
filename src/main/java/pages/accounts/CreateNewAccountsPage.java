@@ -55,7 +55,7 @@ public class CreateNewAccountsPage extends BasePage {
     @FindBy(xpath = "//div[@id = 'brandBand_1']")
     private WebElement newAccountPopUp;
 
-    public AccountsPage createNewAccount() throws InterruptedException {
+    public AccountsPage createNewAccount() {
         waitUntilLoading(accountNameField);
         double rand = Math.random();
         String accountName = "te" + rand;
@@ -66,7 +66,6 @@ public class CreateNewAccountsPage extends BasePage {
         waitUntilLoading(chooseActiveinActiveDropDown);
         waitUntilLoading(chooseActiveinActiveDropDown);
         chooseActiveinActiveDropDown.click();
-        Thread.sleep(5000);
         Actions actions = new Actions(driver);
         actions.moveToElement(slaDropDown);
         actions.perform();

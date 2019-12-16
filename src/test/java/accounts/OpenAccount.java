@@ -12,7 +12,7 @@ public class OpenAccount extends BaseTest {
     public HomePage homePage;
 
     @Test
-    public void openAccount() throws InterruptedException {
+    public void openAccount() {
         logInPage = base.openPlayGroundPage();
         homePage = logInPage.logInPlayGround(UserData.SALES_USER_EMAIL, UserData.SALES_USER_PASSWORD);
     }
