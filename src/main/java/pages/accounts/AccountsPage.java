@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 
 public class AccountsPage extends BasePage {
@@ -43,7 +44,6 @@ public class AccountsPage extends BasePage {
     private WebElement accountsTab;
 
 CreateNewAccountsPage createNewAccountsPage;
-
 
     public CreateNewAccountsPage clickOnNewAccountButton () {
         waitUntilLoading(newAccountButton);

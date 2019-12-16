@@ -23,6 +23,6 @@ public class BaseTest extends BaseConfiguration{
 //        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 //        driver.switchTo().window(tabs.get(1));
 //        driver.close();
-        BaseConfiguration.getDriver().quit();
+//        BaseConfiguration.getDriver().quit();
     }
 }
